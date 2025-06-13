@@ -1,0 +1,11 @@
+#!/usr/bin/zsh
+
+toolwait -w zen /usr/local/zen/zen
+swaymsg move right
+swaymsg move right
+swaymsg move right
+swaymsg move right
+swaymsg move right
+swaymsg move right
+swaymsg move right
+swaymsg resize set width 65

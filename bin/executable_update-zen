@@ -1,0 +1,21 @@
+#!/bin/bash -e
+
+INSTALL_DIR="/usr/local/zen"
+installed=$(cat $INSTALL_DIR/application.ini | grep "^Version" | cut -d '=' -f2)
+echo "Installed version: $installed"
+current=$(curl https://api.github.com/repos/zen-browser/desktop/releases/latest -s | jq .tag_name -r)
+echo "Latest version: $current"
+
+if [ "$installed" != "$current" ]; then
+    echo "Updating Zen Browser to version $current"
+    killall zen || true
+    sudo rm -rf $INSTALL_DIR
+    sudo mkdir -p $INSTALL_DIR
+    curl -L \
+        https://github.com/zen-browser/desktop/releases/latest/download/zen.linux-x86_64.tar.xz \
+    | sudo tar -xJf - -C $INSTALL_DIR --strip-components=1
+    echo "Zen Browser updated to version $current"
+    launch-zen
+else
+    echo "Zen Browser is already up to date."
+fi

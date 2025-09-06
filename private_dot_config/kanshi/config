@@ -9,5 +9,15 @@ profile {
 }
 
 profile {
+  output eDP-1 disable
+  output DP-9 enable
+}
+
+profile {
+  output eDP-1 disable
+  output DP-10 enable
+}
+
+profile {
   output eDP-1 enable
 }

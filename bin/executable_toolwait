@@ -1,8 +1,10 @@
-#!/usr/bin/env -S python3 -B
-# https://gitlab.com/wef/dotfiles/-/blob/master/bin/i3-toolwait
-TIME_STAMP="20240907.074723"
-
-# dependencies: i3ipc: https://i3ipc-python.readthedocs.io/en/latest/
+#!/usr/bin/env -S uv run --script
+# /// script
+# requires-python = ">=3.11"
+# dependencies = ['i3ipc']
+# [tool.uv]
+# exclude-newer = "2025-09-10T00:00:00Z"
+# ///
 
 # Copyright (C) 2020-2024 Bob Hepple <bob dot hepple at gmail dot com>
 
@@ -143,9 +145,3 @@ http://www.ibiblio.org/pub/linux/X11/xutils/toolwait-0.9.tar.gz
     verbose(f"terminating, retval={retval}")
     print(args.id)
     sys.exit(retval)
-
-# Local variables:
-# mode: python
-# time-stamp-pattern: "4/TIME_STAMP=\"%:y%02m%02d.%02H%02M%02S\""
-# eval: (add-hook 'before-save-hook 'time-stamp)
-# End:

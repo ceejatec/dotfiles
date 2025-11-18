@@ -1,1 +1,0 @@
-blackduck-poc-api-token.txt
